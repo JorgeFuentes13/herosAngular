@@ -1,1 +1,101 @@
-<p>hero-page works!</p>
+
+<ng-template #divLoading>
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+
+
+
+<div  *ngIf="hero; else divLoading"  class="grid p-2">
+
+    <mat-card class="col-12 sm:col-6">
+
+
+                <mat-card-header>
+                    <mat-card-title>{{hero.alter_ego}}</mat-card-title>
+                    <mat-card-subtitle>{{hero.superhero}}</mat-card-subtitle>
+                </mat-card-header>
+                
+                    <img [src]="hero | heroImage"  [alt]="hero.superhero"   mat-card-image class="max-w-20rem"/>
+        
+    </mat-card>
+
+    <mat-card class="col-12 sm:col-6">
+
+        <mat-card-header>
+            <mat-card-title>Información</mat-card-title>
+            <mat-card-subtitle>{{hero.superhero}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>{{hero.first_appearance}}</mat-list-item>
+                <mat-list-item>{{hero.characters}}</mat-list-item>
+                <mat-list-item>{{hero.publisher}}</mat-list-item>
+                <mat-list-item>{{hero.alter_ego}}</mat-list-item>
+            </mat-list>
+
+            <button
+            mat-button
+            color="warn"
+            (click)="goBack()"
+            >
+            Regresar
+            </button>
+        </mat-card-content>
+
+    </mat-card>
+
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    .loading-container {
+  position: fixed; /* Fija el contenedor en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  height: 100vh; /* Ocupa todo el alto de la pantalla */
+  display: flex; /* Usa flexbox para centrar */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+  </style>
