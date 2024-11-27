@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [routerLink]="['/heroes/', hero.id]" style="cursor: pointer;">
 
     <mat-card-header>
 
@@ -7,14 +7,14 @@
     </mat-card-header>
 
 
-    <img mat-card-image [src]="hero | heroImage"   [alt]="hero.superhero">
+    <img mat-card-image [src]="hero | heroImage"   [alt]="hero.superhero" class="h-28rem">
 
     <mat-card-content class="mt-2">
 
         <h4>
             {{hero.publisher}}
         </h4>
-        <p>
+        <p class="dynamic-font">
             <strong>Primera aparición </strong> {{hero.first_appearance}}
         </p>
         <br>
@@ -52,3 +52,16 @@
     </mat-card-actions>
 
 </mat-card>
+
+
+
+
+
+<style>
+    .dynamic-font {
+  font-size: clamp(10px, 2vw, 14px); /* Tamaño mínimo, relativo y máximo */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
